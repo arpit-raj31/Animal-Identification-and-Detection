@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+</head>
+<body> 
+    <script src="{{ url_for('static', filename='static/main.js') }}"></script>
+
+
+    <header class="header">
+        <a href="#" class="logo">Creature-Vision</a>
+        <nav class="navbar">
+            <a href="#home" style="--i:1">Home</a>
+            <a href="#about" style="--i:2">About</a>
+            <a href="#projectDemo" style="--i:4">Project-Demo</a>
+            <a href="#team" style="--i:2">Team</a>
+            <a href="#contact" style="--i:5">Contact Us</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <h3>Empowering Wildlife Discovery Through Technology</h3>
+            <h4>Innovative Insights into Nature's Wonders</h4>
+            <h5>And
+                <span class=".text"></span></h5>
+            <p>Animal welfare activists advocate for the welfare of non-human animals. It is the goal of animal activists to protect and respect the natural conditions of
+                 non-human animals to live as they wish without the interference of humans.</p>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-img">
+            <!-- <img src= "{{url_for('static', filename='/Image/123.jpg')}}"> -->
+        </div>
+        <div class="about-text">
+          <h2>About <span>Project</span></h2>
+          <h4>Animal Identification and Detection</h4>
+          <p>Automated Animal Identification and Detection of Species is a project that addresses the need for a 
+            more efficient and accurate method of identifying and detecting different animal species. The project will
+             utilize deep learning techniques, including CNNs, to develop a system that can automatically recognize 
+             animal species based on their images. The system will be trained using a large dataset of animal images
+              and fine-tuned using a pre-trained network VGG to optimize the training process and improve 
+              classification accuracy. This project has the potential to revolutionize the field of animal research
+               and conservation by providing a more accurate and efficient method of identifying and detecting animal
+                species. Both CNN model and VGG were used in this project, in these two models VGG have got high
+                 accuracy in detecting and classifying different types of animals, which can be beneficial in various 
+                 applications, such as wildlife conservation, animal tracking, and crop protection, with a concise
+                  conclusion based on the findings. </p>
+                  <a href="#" class="btn-box">More About this</a>
+        </div>
+    </section>
+
+    <section class="projectDemo" id="project">
+        <div class="about-img">
+            <!-- <img src="{{url_for('static', filename='Image/123.png')}}" > -->
+        </div>
+        <div class="about-text">
+           
+
+            <h2>Project <span>Demo</span></h2>
+            <h4>Image Upload</h4>
+
+           <main>
+    <form class="p-3 text-center" action='/pred' method="post" enctype="multipart/form-data">
+        <input class="form-control" type="file" name="imagefile" accept="image/*" onchange="previewImage(event)">
+        <input class="btn btn-primary mt-3" type="submit" value="Predict Image">
+    </form>
+    <div>
+        {% if prediction and img_name %}
+        <!-- <h1>{ image_name }</h1> -->
+        <img id="predicted-image" class="block_center" src="{{url_for('static', filename=img_name)}}" alt="Predicted Image">
+        <p class="text-center"> Image is a {{ prediction }}</p>
+        {% endif %}
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search about animal species...">
+        <button type="button" onclick="searchProjects()">Search</button>
+    </div>
+
+    <p style="font-family: sans-serif; font-size: 16px; line-height: 1.5; margin-bottom: 15px; text-align: justify;">
+        The world of animal studies is undergoing a <strong>revolution</strong>! Automated identification and detection of species, powered by <strong>deep learning</strong>, allows us to see wildlife like never before. No longer bound by manual methods, researchers now utilize camera traps and image analysis to <strong>identify animals</strong>, <strong>track their movements</strong>, and even <strong>monitor endangered populations</strong>. This technology saves time, improves accuracy, and enhances safety, revealing new insights into animal behavior and providing crucial data for conservation efforts. As this field continues to evolve, we can expect even more groundbreaking discoveries, ultimately leading to a better understanding and protection of our planet's diverse animals.
+    </p>
+</main>
+
+          
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <h1 class="sub-title">My <span>Team</span></h1>
+            <div class="service-list">
+                <div>
+                    
+                    <h2>Arpit Raj</h2>
+                    <p>Passionate and versatile Full Stack Developer with a proven track record of delivering 
+                        high-quality software solutions. Equipped with a strong foundation in both 
+                        frontend and backend technologies, I excel in crafting dynamic web applications that marry seamless user experiences with robust functionality.Proficient in a wide array of programming languages including C++ and Java.</p>
+                    <a href="#" class="read">learn more</a>
+                </div>
+                <div>
+                   
+                    <h2>Rishabh Dev Nayak</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim hic velit iste eos voluptate quis earum, itaque <br>
+                    maxime aut, provident, magni repudiandae impedit architecto perferendis veniam delectus! Dolore, et rerum?</p>
+                    <a href="#" class="read">learn more</a>
+                </div>
+                <div>
+                    
+                    <h2>Ishita Singh</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim hic velit iste eos voluptate quis earum, itaque <br>
+                    maxime aut, provident, magni repudiandae impedit architecto perferendis veniam delectus! Dolore, et rerum?</p>
+                    <a href="#" class="read">learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <h2>Contact <span>Us</span></h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <nav class="footer-nav">
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </footer>
+ 
+</body>
+</html>
